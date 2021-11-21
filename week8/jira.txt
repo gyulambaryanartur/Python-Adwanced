@@ -1,0 +1,7 @@
+https://jira.atlassian.com/rest/api/2/search?jql=issue=JRASERVER-70501%20and%20created%3E=%272020-01-09%27
+https://jira.atlassian.com/rest/api/2/search?jql=issue=JRASERVER-70501
+https://towardsdatascience.com/communication-story-from-an-issue-tracking-software-efbbf29736ff
+https://github.com/pycontribs/jira
+https://jira.readthedocs.io/en/master/examples.html#searching
+https://blog.softhints.com/request-jira-api-with-python-examples/
+jql = 'project = ' + project_key + ' AND  worklogDate >= ' + work_date

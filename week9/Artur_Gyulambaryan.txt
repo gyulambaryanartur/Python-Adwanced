@@ -1,0 +1,414 @@
+1). Which of the following keywords mark the beginning of the class definition?
+A) def
+B) return
+* C) class
+D) object
+E) all of the above
+2). Which of the following is required to create a new instance of the class?
+* A) a constructor
+B) a class
+C) a value-returning method
+D) a None method
+E) none of the above
+3). Is the following code correct?
+------------------------------
+class A:
+    def __init__(self, b):
+        self.b = b
+
+    def display(self):
+        print(self.b)
+
+obj = A('Hello')
+del obj
+* A) yes
+B) no
+4). What gets printed?
+------------------
+class Test:
+    def __init__(self):
+        self.variable = 'Old'
+        self.change(self.variable)
+
+    def change(self, var):
+        var = 'New'
+
+obj = Test()
+print(obj.variable)
+A) error because function 'change' can’t be called in the '__init__' function
+B) New
+* C) Old
+D) nothing is printed
+E) syntax error
+5). What gets printed?
+------------------
+class Fruits:
+    def __init__(self, price):
+        self.price = price
+
+
+obj = Fruits(50)
+obj.quantity = 10
+obj.bags = 2
+
+print(obj.quantity + len(obj.__dict__))
+A) an exception is thrown
+B) 12
+C) 52
+* D) 13
+E) 60
+6). What is getattr() used for?
+* A) to access the attribute of the object
+B) to delete an attribute
+C) to check if an attribute exists or not
+D) to set an attribute
+7). Which of the following expressions calls parent class's constructor?
+A) self.parent.__init__()
+B) super().constructor()
+C) super(self)
+* D) super().__init__()
+E) non of the above
+8). Which statement below is used to inherit class B from class A?
+A) class B extends A:
+* B) class B(A):
+C) class B < A:
+D) class B, A
+E) non of the above
+9). What gets printed?
+------------------
+class Shape:
+    def __init__(self):
+        self.color = 'black'
+
+
+class Square(Shape):
+    def __init__(self):
+        self.edges = 4
+        super().__init__()
+
+        
+sq = Square()
+print(sq.color)
+* A) black
+B) None
+C) AttributeError: 'Square' object has no attribute 'color'
+D) invalid syntax
+10). What gets printed?
+------------------
+class Test:
+    pass
+
+
+t = Test()
+print(isinstance(t, object))
+* A) True
+B) False
+C) An exception is thrown
+11). What gets printed?
+------------------
+class Shape:
+    pass
+
+
+class Square(Shape):
+    def __init__(self):
+        super().__init__()
+
+
+sq = Square()
+print(isinstance(sq, Shape))
+* A) True
+B) False
+C) An exception is thrown
+12). Does Python support multiple inheritance?
+* A) yes
+B) no
+13). What gets printed?
+------------------
+class Black:
+    def get_color(self):
+        return 'black'
+
+
+class White:
+    def get_color(self):
+        return 'white'
+
+
+class ColorMix(White, Black):
+    pass
+
+
+mix = ColorMix()
+print(mix.get_color())
+A) black
+* B) white
+C) an exception is thrown
+D) this program has undefined behavior
+14). What gets printed?
+------------------
+class Test:
+    @classmethod
+    def info(cls):
+        print(cls)
+
+
+t = Test()
+t.info()
+A) invalid syntax
+B) an exception is thrown
+* C) <class '__main__.Test'>
+D) <__main__.Test object at 0x02CE2BD0>
+E) none of the above
+15). What gets printed?
+------------------
+class Test:
+    @staticmethod
+    def info(cls):
+        print(cls)
+
+
+t = Test()
+t.info()
+A) invalid syntax
+* B) an exception is thrown
+C) <class '__main__.Test'>
+D) <__main__.Test object at 0x02CE2BD0>
+E) none of the above
+16). Which of this methods is not a magic method for class?
+A) __call__
+B) __repr__
+* C) __complex__
+D) __attr__
+E) __getitem__
+17). Which of the following functions overloads standard arithmetic operations?
+A) __iadd__
+B) __itruediv__
+C) __sub__
+* D) all of the above
+E) non of the above
+18). What gets printed?
+------------------
+class Person:
+
+    __slots__ = 'id'
+
+    def __init__(self, id):
+        self.id = id
+
+
+obama = Person(100)
+obama.age = 49
+print(obama.age + obama.id)
+A) 49
+B) 149
+C) None
+* D) AttributeError: 'Person' object has no attribute 'age'
+E) invalid syntax
+19). What gets printed?
+------------------
+class Test:
+    def __init__(self):
+        self.__info = None
+
+    @property
+    def info(self):
+        pass
+
+    @info.setter
+    def info(self, msg: str):
+        self.__info = msg
+
+    @info.getter
+    def info(self):
+        return f'[INFO] {self.__info}'
+
+
+t = Test()
+t.info = 'something'
+print(t.info)
+A) invalid syntax
+B) AttributeError: can't set attribute
+* C) [INFO] something
+D) [INFO] None
+E) None
+20). What gets printed?
+------------------
+import abc
+
+
+class Weapon(abc.ABC):
+    def __init__(self):
+        super().__init__()
+
+    def fire(self):
+        print('pew-pew')
+
+
+obj = Weapon()
+obj.fire()
+A) TypeError
+* B) pew-pew
+C) AttributeError: 'Weapon' object has no attribute 'fire'
+D) None
+21). What gets printed?
+------------------
+class A:
+
+    class B:
+        def about(self):
+            print('I am B')
+
+    def __init__(self):
+        self.b = A.B()
+
+    def __repr__(self):
+        return 'I am A'
+
+
+obj = A()
+obj.b.about()
+print(obj)
+A) invalid syntax
+B) NameError: name 'B' is not defined
+* C) I am B
+I am A
+D) I am B
+<__main__.A object at 0x02CF2DB0>
+22). def ensure_even(func):
+    def wrapped(*args, **kwargs):
+             value = func(*args, **kwargs)
+             return value if value % 2 == 0 else value - 1
+    return wrapped
+
+
+@ensure_even
+def add(a: int, b: int) -> int:
+    return a + b
+
+
+print(add(4, 7))
+A) invalid syntax
+* B) an exception is thrown
+C) 10
+D) 11
+E) <function ensure_event.<locals>.wrapped at 0x02C69810>
+23). What is the output of the following program?
+--------------------------------------------
+def foo(x):
+    if x ==1:
+        return 1
+    else:
+        return x + foo(x - 1)
+
+
+print(foo(4))
+* A) 10
+B) 24
+C) 7
+D) 1
+24). What is the output of the program below?
+----------------------------------------
+def mk(x):
+    def mk1():
+        print('Decorated')
+        x()
+    return mk1
+
+
+def mk2():
+    print('Ordinary')
+
+
+p = mk(mk2)
+p()
+A) Decorated
+Decorated
+B) Ordinary
+Ordinary
+C) Ordinary
+Decorated
+* D) Decorated
+Ordinary
+25). The code shown above can work with ____ parameters.
+---------------------------------------------------
+def f(x):
+    def f1(*args, **kwargs):
+        print('Sanfoundry')
+        return x(*args, **kwargs)
+    return f1
+A) 2
+B) 1
+* C) any number of
+D) 0
+26). What is the output?
+-------------------
+def f(x):
+    def f1(*args, **kwargs):
+        print('*' * 5)
+        x(*args, **kwargs)
+        print('*' * 5)
+    return f1
+
+
+def a(x):
+    def f1(*args, **kwargs):
+        print('%'* 5)
+        x(*args, **kwargs)
+        print('%'* 5)
+    return f1
+
+
+@f
+@a
+def p(m):
+    print(m)
+
+
+p('hello')
+* A) *****
+%%%%%
+hello
+%%%%%
+*****
+B) Error
+C) *****%%%%%hello%%%%%*****
+D) hello
+27). What gets printed?
+------------------
+def feeder():
+    names = ('Joe', 'James', 'Piter', 'Sauron', 'Arthas')
+    for name in names:
+        yield name
+
+
+print(type(feeder()))
+A) <class 'tuple'>
+* B) <class 'generator'>
+C) <class 'function'>
+D) <class 'str'>
+28). What gets printed?
+------------------
+def feeder():
+    names = ('Joe', 'James', 'Piter', 'Sauron', 'Arthas')
+    for name in names:
+        yield name
+
+
+names = feeder()
+for idx in range(10):
+    print(next(names), end=', ')
+A) None
+B) syntax error
+C) Joe, James, Piter, Sauron, Arthas, 
+* D) An exception is thrown
+29). Which of the listed below is not an OOP principle?
+A) polymorphism
+* B) atomicity
+C) encapsulation
+D) inheritance
+30). range function returns ____ .
+A) list
+* B) generator
+C) tuple
+D) None
