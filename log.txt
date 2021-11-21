@@ -1,0 +1,8 @@
+estimation time for ,foo,:,2.002502679824829estimation time for ,bar,:,4.001204013824463estimation time for ,foo,:,2.0009965896606445estimation time for ,bar,:,4.001643180847168
+estimation time for ,foo,:,2.0055179595947266
+func call time:2019-12-28 13:03:16.208666  estimation time for ,bar,:,4.0059099197387695
+func call time:2019-12-28 13:03:18.217548  estimation time for ,foo,:,2.002880811691284
+func call time:2019-12-28 13:04:18.985180  estimation time for ,func_name :bar,:,4.00176477432251
+func call time:2019-12-28 13:04:20.990064  estimation time for ,func_name :foo,:,2.0028820037841797
+func call time:2019-12-28 13:07:20.299905  estimation time for ,func_name :bar,:,4.001474142074585
+func call time:2019-12-28 13:07:22.308844  estimation time for ,func_name :foo,:,2.0018794536590576
