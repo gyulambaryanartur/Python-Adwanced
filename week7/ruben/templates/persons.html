@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table#persons {
+				width: 100%;
+			}
+
+			table#persons tr th {
+				text-align: left;
+			}
+
+			table#persons tr td, table#persons tr th {
+				border-bottom: 1px solid grey;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="persons" cellspacing=0 cellpadding=0>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
+			</tr>
+			{% for person in data.values() %}
+			<tr>
+				<td>{{ person['first_name'] }}</td>
+				<td>{{ person['last_name'] }}</td>
+				<td>{{ person['age'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
